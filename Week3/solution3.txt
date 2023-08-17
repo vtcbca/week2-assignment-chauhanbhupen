@@ -6,6 +6,8 @@ con=sq.connect("c:\\sqlite\\EMS.db")
 q="create table employee(e_id int primary key,e_name text,dept text,basic int ,branch text)"
 cur=con.cursor()
 cur.execute(q)
+con.commit ()
+con.close()
 
 2. Insert 5 Records directly, 5 records using tuple and 5 records using taking input from user
 
@@ -14,6 +16,8 @@ cur.execute(q)
 q1="insert into employee values(1,'jay','Account',5000,'surat'),(2,'suresh','IT',6000,'vyara'),(3,'rahul','HR',7000,'bardoli'),(4,'hiren','IT',8000,'surat'),(5,'dinesh','Inventory',3000,'bardoli')"
 cur=con.cursor()
 cur.execute(q)
+con.commit ()
+con.close()
 
 # insert record using tuple
 
@@ -35,12 +39,16 @@ for i in range(5):
     l.append(t)
 cur=con.cursor()
 cur.executemany(q,l)
+con.commit ()
+con.close()
 
 3. Update records who are from "Surat" branch with increment in salary 10%.
 
 q="update employee set basic=basic+(basic*10/100) where branch='surat'"
 cur=con.cursor()
 cur.execute(q)
+con.commit ()
+con.close()
 
 4. Print All records.
 
@@ -50,6 +58,8 @@ cur.execute(q)
 v=cur.fetchall()	
 for i in v:
     print(i)
+con.commit ()
+con.close()
 
 5. Print records where dept is "HR" and "IT".
 
@@ -58,7 +68,9 @@ cur=con.cursor()
 cur.execute(q)
 v=cur.fetchall()
 for i in v:
-    print(i)	
+    print(i)
+con.commit ()
+con.close()
 
 6. Print records in sorting order of department.
 
@@ -68,6 +80,8 @@ cur.execute(q)
 v=cur.fetchall()
 for i in v:
     print(i)
+con.commit ()
+con.close()
 	
 7. Print records where basic is >6000.
 
@@ -77,6 +91,8 @@ cur.execute(q)
 v=cur.fetchall()
 for i in v:
     print(i)
+con.commit ()
+con.close()
 
 8. Print records whrere employee name second character is "r".
 
@@ -86,6 +102,9 @@ cur.execute(q)
 v=cur.fetchall()
 for i in v:
     print(i)
+con.commit ()
+con.close()
+
 
 9. Grouping record of employee who are from "Account" and "Inventory".
 
@@ -95,6 +114,9 @@ cur.execute(q)
 v=cur.fetchall()
 for i in v:
     print(i)
+con.commit ()
+con.close()
+
 
 10. Print all records based on branch name in descending order.
 
